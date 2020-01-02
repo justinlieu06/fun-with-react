@@ -12,7 +12,7 @@ const App = props => {
     otherState: 'some other value'
   })
 
-  const nameHandler = (newName) => {
+  const switchNameHandler = (newName) => {
     setPersonsState({
       persons: [
         { name: newName, age: 28},
@@ -32,19 +32,27 @@ const App = props => {
     })
   }
 
+  const style = {
+    backgroundColor: "white",
+    font: "inherit",
+    border: "1px solid green",
+    padding: "8px",
+    cursor: "pointer"
+  };
+
   return (
     <div className="App">
       <h1>App</h1>
-      <button onClick={nameHandler}>Switch Name</button>
+      <button onClick={switchNameHandler} style={style}>Switch Name</button>
 
       <Person name={personsState.persons[0].name} 
       age={personsState.persons[0].age} 
-      click={nameHandler.bind(this, "hello")}/>
+      click={switchNameHandler.bind(this, "hello")}/>
 
       <Person name={personsState.persons[1].name} 
       age={personsState.persons[1].age} 
-      click={nameHandler.bind(this, "world")}
-      changed = {nameChangedHandler.bind(this)}>props children</Person>
+      click={switchNameHandler.bind(this, "world")}
+      changed = {nameChangedHandler}>props children</Person>
 
       <Person 
       name={personsState.persons[2].name} 
