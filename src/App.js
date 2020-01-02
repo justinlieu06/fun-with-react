@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './App.css';
 import Person from './Person/Person';
+import UserInput from './UserInput/UserInput';
+import UserOutput from './UserOutput/UserOutput';
 
 const App = props => {
   const [ personsState, setPersonsState ] = useState({
@@ -9,7 +11,10 @@ const App = props => {
       { name: "Justin", age: 22},
       { name: "Bob", age: 26},
     ],
-    otherState: 'some other value'
+  })
+
+  const [ usernameState, setUsernameState] = useState({
+    username: "USERNAME"
   })
 
   const switchNameHandler = (newName) => {
@@ -32,6 +37,12 @@ const App = props => {
     })
   }
 
+  const usernameChangedHandler = event => {
+    setUsernameState({
+      username: event.target.value
+    })
+  }
+
   const style = {
     backgroundColor: "white",
     font: "inherit",
@@ -43,6 +54,9 @@ const App = props => {
   return (
     <div className="App">
       <h1>App</h1>
+
+      <UserInput changed={usernameChangedHandler} username={usernameState.username} />
+
       <button onClick={switchNameHandler} style={style}>Switch Name</button>
 
       <Person name={personsState.persons[0].name} 
@@ -57,6 +71,9 @@ const App = props => {
       <Person 
       name={personsState.persons[2].name} 
       age={personsState.persons[2].age} />
+
+      <UserOutput username={usernameState.username} />
+      <UserOutput username={usernameState.username} />
     </div>
   );
   
