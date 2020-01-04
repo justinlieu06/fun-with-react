@@ -3,6 +3,7 @@ import './App.css';
 import Person from './Person/Person';
 import UserInput from './UserInput/UserInput';
 import UserOutput from './UserOutput/UserOutput';
+import Validation from './Validation/Validation';
 
 // const App = props => {
 //   const [ personsState, setPersonsState ] = useState({
@@ -98,7 +99,8 @@ class App extends Component {
     ],
     otherState: 'some other value',
     showPersons: false,
-    username: 'USERNAME'
+    username: 'USERNAME',
+    userInput: '',
   }
 
   nameChangedHandler = (event, id) => {
@@ -137,6 +139,10 @@ class App extends Component {
     this.setState({showPersons: !doesShow });
   }
 
+  inputChangedHandler = (event) => {
+    this.setState({userInput: event.target.value})
+  }
+
   render(){
     const style = {
       backgroundColor: "white",
@@ -173,6 +179,14 @@ class App extends Component {
         {persons}
         <UserOutput username={this.state.username} />
         <UserOutput username={this.state.username} />
+
+        <hr />
+        <input 
+          type="text" 
+          onChange={this.inputChangedHandler} 
+          value={this.state.userInput}/>
+        <p>{this.state.userInput}</p>
+        <Validation inputLength={this.state.userInput.length} />
       </div>
     );
   }
