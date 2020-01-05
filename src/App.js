@@ -4,6 +4,7 @@ import Person from './Person/Person';
 import UserInput from './UserInput/UserInput';
 import UserOutput from './UserOutput/UserOutput';
 import Validation from './Validation/Validation';
+import Char from './Char/Char';
 
 // const App = props => {
 //   const [ personsState, setPersonsState ] = useState({
@@ -143,14 +144,29 @@ class App extends Component {
     this.setState({userInput: event.target.value})
   }
 
+  deleteCharHandler = (index) => {
+    const text = this.state.userInput.split('');
+    text.splice(index, 1);
+    const updatedText = text.join('');
+    this.setState({userInput: updatedText});
+  }
+
   render(){
     const style = {
-      backgroundColor: "white",
+      backgroundColor: "green",
+      color: 'white',
       font: "inherit",
       border: "1px solid green",
       padding: "8px",
       cursor: "pointer"
     };
+
+    const charList = this.state.userInput.split("").map((ch, index) => {
+      return <Char 
+        character={ch} 
+        key={index} 
+        clicked={() => this.deleteCharHandler(index)} />
+    });
 
     let persons = null;
 
@@ -167,6 +183,7 @@ class App extends Component {
           })}
         </div>
       )
+      style.backgroundColor = 'red';
     }
   
     return (
@@ -187,6 +204,7 @@ class App extends Component {
           value={this.state.userInput}/>
         <p>{this.state.userInput}</p>
         <Validation inputLength={this.state.userInput.length} />
+        {charList}
       </div>
     );
   }
