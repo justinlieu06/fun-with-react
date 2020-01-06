@@ -5,6 +5,7 @@ import UserInput from './UserInput/UserInput';
 import UserOutput from './UserOutput/UserOutput';
 import Validation from './Validation/Validation';
 import Char from './Char/Char';
+import Radium from 'radium';
 
 // const App = props => {
 //   const [ personsState, setPersonsState ] = useState({
@@ -158,7 +159,11 @@ class App extends Component {
       font: "inherit",
       border: "1px solid green",
       padding: "8px",
-      cursor: "pointer"
+      cursor: "pointer",
+      'hover': {
+        backgroundColor: 'lightgreen',
+        color: 'black',
+      }
     };
 
     const charList = this.state.userInput.split("").map((ch, index) => {
@@ -184,11 +189,23 @@ class App extends Component {
         </div>
       )
       style.backgroundColor = 'red';
+      style['hover'] = {
+        backgroundColor: 'salmon',
+        color: 'black',
+      }
+    }
+
+    let classes = [];
+    if (this.state.persons.length <= 2){
+      classes.push('red');
+    }
+    if (this.state.persons.length <= 1){
+      classes.push('bold')
     }
   
     return (
       <div className="App">
-        <h1>App</h1>
+        <h1 className={classes.join(' ')}>App</h1>
   
         <UserInput changed={this.usernameChangedHandler} username={this.state.username} />
   
@@ -210,4 +227,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Radium(App);
