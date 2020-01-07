@@ -5,7 +5,7 @@ import UserInput from './UserInput/UserInput';
 import UserOutput from './UserOutput/UserOutput';
 import Validation from './Validation/Validation';
 import Char from './Char/Char';
-import Radium from 'radium';
+import Radium, { StyleRoot } from 'radium';
 
 // const App = props => {
 //   const [ personsState, setPersonsState ] = useState({
@@ -204,6 +204,7 @@ class App extends Component {
     }
   
     return (
+      <StyleRoot>
       <div className="App">
         <h1 className={classes.join(' ')}>App</h1>
   
@@ -223,6 +224,7 @@ class App extends Component {
         <Validation inputLength={this.state.userInput.length} />
         {charList}
       </div>
+      </StyleRoot>
     );
   }
 }
