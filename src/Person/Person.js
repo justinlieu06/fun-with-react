@@ -1,6 +1,8 @@
 import React from 'react';
 // import "./Person.css";
 
+
+//create a react element inside a component?
 const StyledDiv = styled.div`
 width: 60%;
 margin: 16px auto;
