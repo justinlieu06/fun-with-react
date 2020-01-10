@@ -1,10 +1,10 @@
 import React, { useState, Component } from 'react';
 import './App.css';
-import Person from './Person/Person';
-import UserInput from './UserInput/UserInput';
-import UserOutput from './UserOutput/UserOutput';
-import Validation from './Validation/Validation';
-import Char from './Char/Char';
+import Person from '../components/Persons/Person/Person';
+import UserInput from '../components/UserInput/UserInput';
+import UserOutput from '../components/UserOutput/UserOutput';
+import Validation from '../components/Validation/Validation';
+import Char from '../Char/Char';
 import styled from 'styled-components';
 
 // const App = props => {
