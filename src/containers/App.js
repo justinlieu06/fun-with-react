@@ -6,6 +6,7 @@ import UserOutput from '../components/UserOutput/UserOutput';
 import Validation from '../components/Validation/Validation';
 import Char from '../Char/Char';
 import styled from 'styled-components';
+import Persons from '../components/Persons/Persons';
 
 // const App = props => {
 //   const [ personsState, setPersonsState ] = useState({
@@ -178,14 +179,10 @@ class App extends Component {
     if (this.state.showPersons){
       persons = (
         <div>
-          {this.state.persons.map((person, index) => {
-            return <Person 
-            click={() => this.deletePersonHandler(index)}
-            name={person.name} 
-            age={person.age} 
-            key={person.id}
-            change={(event) => this.nameChangedHandler(event, person.id)} />
-          })}
+          <Persons 
+            persons={this.state.persons} 
+            clicked={this.deletePersonHandler}
+            changed={this.nameChangedHandler} />
         </div>
       )
       style.backgroundColor = 'red';
@@ -193,14 +190,6 @@ class App extends Component {
         backgroundColor: 'salmon',
         color: 'black',
       }
-    }
-
-    let classes = [];
-    if (this.state.persons.length <= 2){
-      classes.push('red');
-    }
-    if (this.state.persons.length <= 1){
-      classes.push('bold')
     }
   
     return (
