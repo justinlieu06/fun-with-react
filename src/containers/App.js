@@ -7,6 +7,7 @@ import Validation from '../components/Validation/Validation';
 import Char from '../Char/Char';
 import styled from 'styled-components';
 import Persons from '../components/Persons/Persons';
+import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
 
 // const App = props => {
 //   const [ personsState, setPersonsState ] = useState({
