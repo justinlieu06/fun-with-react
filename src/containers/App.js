@@ -5,22 +5,8 @@ import UserInput from '../components/UserInput/UserInput';
 import UserOutput from '../components/UserOutput/UserOutput';
 import Validation from '../components/Validation/Validation';
 import Char from '../Char/Char';
-import styled from 'styled-components';
 import Persons from '../components/Persons/Persons';
 import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
-
-const StyledButton = styled.button`
-  background-color: ${props => props.alt? 'red' : 'green'};
-  color: white;
-  font: inherit;
-  border: 1px solid green;
-  padding: 8px;
-  cursor: pointer;
-  &:hover {
-    background-color: ${props => props.alt? 'salmon' : 'lightgreen'};
-    color: black;
-  }
-`;
 
 // const App = props => {
 //   const [ personsState, setPersonsState ] = useState({
@@ -206,7 +192,7 @@ class App extends Component {
   
         <UserInput changed={this.usernameChangedHandler} username={this.state.username} />
   
-        <StyledButton alt={this.state.showPersons} onClick={this.togglePersonsHandler} >Toggle Persons</StyledButton>
+        <button alt={this.state.showPersons} onClick={this.togglePersonsHandler} >Toggle Persons</button>
         {persons}
         <UserOutput username={this.state.username} />
         <UserOutput username={this.state.username} />
