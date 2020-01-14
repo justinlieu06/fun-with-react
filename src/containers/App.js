@@ -9,6 +9,19 @@ import styled from 'styled-components';
 import Persons from '../components/Persons/Persons';
 import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
 
+const StyledButton = styled.button`
+  background-color: ${props => props.alt? 'red' : 'green'};
+  color: white;
+  font: inherit;
+  border: 1px solid green;
+  padding: 8px;
+  cursor: pointer;
+  &:hover {
+    background-color: ${props => props.alt? 'salmon' : 'lightgreen'};
+    color: black;
+  }
+`;
+
 // const App = props => {
 //   const [ personsState, setPersonsState ] = useState({
 //     persons: [
@@ -157,16 +170,7 @@ class App extends Component {
 
   render(){
     const style = {
-      backgroundColor: "green",
-      color: 'white',
-      font: "inherit",
-      border: "1px solid green",
-      padding: "8px",
-      cursor: "pointer",
-      'hover': {
-        backgroundColor: 'lightgreen',
-        color: 'black',
-      }
+      backgroundColor: 'purple',
     };
 
     const charList = this.state.userInput.split("").map((ch, index) => {
@@ -177,6 +181,7 @@ class App extends Component {
     });
 
     let persons = null;
+    let btnClass = '';
 
     if (this.state.showPersons){
       persons = (
@@ -187,20 +192,21 @@ class App extends Component {
             changed={this.nameChangedHandler} />
         </div>
       )
-      style.backgroundColor = 'red';
-      style['hover'] = {
-        backgroundColor: 'salmon',
-        color: 'black',
-      }
+      // style.backgroundColor = 'red';
+      // style[':hover'] = {
+      //   backgroundColor: 'salmon',
+      //   color: 'black',
+      // }
+      // btnClass = classes.Red;
     }
   
     return (
       <div className="App">
-        <h1 className={classes.join(' ')}>App</h1>
+        {/* <h1 className={classes.join(' ')}>App</h1> */}
   
         <UserInput changed={this.usernameChangedHandler} username={this.state.username} />
   
-        <button onClick={this.togglePersonsHandler} style={style}>Toggle Persons</button>
+        <StyledButton alt={this.state.showPersons} onClick={this.togglePersonsHandler} >Toggle Persons</StyledButton>
         {persons}
         <UserOutput username={this.state.username} />
         <UserOutput username={this.state.username} />
