@@ -1,5 +1,5 @@
 import React, { useState, Component } from 'react';
-import './App.css';
+import classes from './App.css';
 import Person from '../components/Persons/Person/Person';
 import UserInput from '../components/UserInput/UserInput';
 import UserOutput from '../components/UserOutput/UserOutput';
@@ -155,9 +155,6 @@ class App extends Component {
   }
 
   render(){
-    const style = {
-      backgroundColor: 'purple',
-    };
 
     const charList = this.state.userInput.split("").map((ch, index) => {
       return <Char 
@@ -167,7 +164,7 @@ class App extends Component {
     });
 
     let persons = null;
-    let btnClass = '';
+    let btnClass = [classes.Button];
 
     if (this.state.showPersons){
       persons = (
@@ -183,16 +180,16 @@ class App extends Component {
       //   backgroundColor: 'salmon',
       //   color: 'black',
       // }
-      // btnClass = classes.Red;
+      btnClass.push(classes.Red);
     }
   
     return (
-      <div className="App">
+      <div className={classes.App}>
         {/* <h1 className={classes.join(' ')}>App</h1> */}
   
         <UserInput changed={this.usernameChangedHandler} username={this.state.username} />
   
-        <button alt={this.state.showPersons} onClick={this.togglePersonsHandler} >Toggle Persons</button>
+        <button className={btnClass.join(' ')} alt={this.state.showPersons} onClick={this.togglePersonsHandler} >Toggle Persons</button>
         {persons}
         <UserOutput username={this.state.username} />
         <UserOutput username={this.state.username} />
