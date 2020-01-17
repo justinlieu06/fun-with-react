@@ -1,3 +1,5 @@
+
+
 .Person {
   width: 60%;
   margin: 16px auto;
@@ -7,6 +9,7 @@
   text-align: center;
 }
 
+/*media query example*/
 @media (min-width: 500px) {
   .Person {
     width: 450px;
