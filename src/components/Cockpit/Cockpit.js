@@ -1,13 +1,20 @@
 import React from 'react';
-import classes from './Cockpit.css';
+// import classes from './Cockpit.css';
 
-const cockpit = () => {
-  let classes = [];
-  if (this.state.persons.length <= 2){
-    classes.push('red');
+const cockpit = (props) => {
+  // let classes = [];
+  // if (this.state.persons.length <= 2){
+  //   classes.push('red');
+  // }
+  // if (this.state.persons.length <= 1){
+  //   classes.push('bold')
+  // }
+  const assignedClasses = [];
+  if (props.persons.length <= 2){
+    assignedClasses.push( classes.red );
   }
-  if (this.state.persons.length <= 1){
-    classes.push('bold')
+  if (props.persons.length <= 1){
+    assignedClasses.push( classes.bold );
   }
 
 
