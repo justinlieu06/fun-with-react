@@ -7,6 +7,7 @@ import Validation from '../components/Validation/Validation';
 import Char from '../Char/Char';
 import Persons from '../components/Persons/Persons';
 import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
+import Cockpit from '../components/Cockpit/Cockpit';
 
 // const App = props => {
 //   const [ personsState, setPersonsState ] = useState({
@@ -185,6 +186,8 @@ class App extends Component {
   
     return (
       <div className={classes.App}>
+        <Cockpit showPersons={this.state.showPersons} persons={this.state.persons} />
+        {persons}
         {/* <h1 className={classes.join(' ')}>App</h1> */}
   
         <UserInput changed={this.usernameChangedHandler} username={this.state.username} />
