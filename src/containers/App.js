@@ -9,6 +9,7 @@ import Persons from '../components/Persons/Persons';
 import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
 import Cockpit from '../components/Cockpit/Cockpit';
 
+//old way of doing things
 // const App = props => {
 //   const [ personsState, setPersonsState ] = useState({
 //     persons: [
@@ -211,5 +212,3 @@ class App extends Component {
 }
 
 export default App;
-
-//need to update
