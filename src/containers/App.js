@@ -10,6 +10,7 @@ import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
 import Cockpit from '../components/Cockpit/Cockpit';
 
 //declaration of App
+//need update 1/5
 // const App = props => {
 //   const [ personsState, setPersonsState ] = useState({
 //     persons: [
